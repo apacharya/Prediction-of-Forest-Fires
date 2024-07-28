@@ -6,7 +6,9 @@ In this project, I am using publicly available climate and environment data to p
 **Overview**: Science has changed the way we deal with natural disasters. Today's disaster management departments are able to plan better by being informed using past data and by data driven decisions.
 
 One such problem is to predict the area burned due to forest fires. I am leveraging data set from https://archive.ics.uci.edu/dataset/162/forest+fires.This is a difficult regression task, where the aim is to predict the burned area of forest fires, in the northeast region of Portugal, by using meteorological and other data.
-![image.png](attachment:image.png)
+
+![image](https://github.com/user-attachments/assets/7f6b9140-4606-46e9-bd5e-541bbb15dce1)
+
 
 **Scope**: In this project, my goal is to leverage Regressors such as K Nearest Neighbor, Linear Regression, Ensemble models, Support Vector Machines and neural networks to predict the burned area due to forest fires and compare their performance.
 
