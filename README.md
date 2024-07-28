@@ -38,7 +38,13 @@ area is the Target which is of type Integer
 It represents the burned area of the forest: 0.00 to 1090.84 (this output variable is very skewed towards 0.0, thus it may make sense to model with the logarithm transform).
 ```
 
-## Section 2: Insights from Exploratory Data Analysis
+## Section 2: Feature Engineering
+##### No null values to be removed
+##### Encoded each categorical features value to boolean and scaled all numerical features
+##### No need to remove any features since not any features are highly correlated to target (area)
+##### The distribution of target - burned area is very skewed and gence, log transforming the data made area follow more like a normal distribution
+
+## Section 3: Insights from Exploratory Data Analysis
 
 #### - August and September seem to have high fire occurences.
 #### - Weekends incling friday has higher burns than other days. I wonder if this is to do with majority of workers not being available to put off fires on weekend.s This however, is only a deduction and my interpretation of data.
@@ -53,4 +59,20 @@ It represents the burned area of the forest: 0.00 to 1090.84 (this output variab
 #### - Wind peaks in the month of feb and continues to peak and reaches maximum in november and december, although it gradually decreases in oct before it peaks.
 #### - High wind and temperature does not seem to guarentee high likelihood of higher burned area.
 #### - Rain is highly peaking in only August. It is a wonder that burnt area is high in that same month as well.
+
+## Section 4: Modeling : Performance Results Comparison after GridSearchCv
+
+![image](https://github.com/user-attachments/assets/58bd2de9-e4a0-4866-8cf3-e8d52307f4ac)
+
+#### - All regressors have low mean square error
+#### - R2 is very bad & negative for all regressors including ensemble models after gridsearch.
+#### - Cross validation did not improve score on linear regression
+#### - Since R2 are negative, we need to go back to data features transformation and see if there is any standardization required
+
+## NEXT STEPS
+#### - Apply Regularization techniques
+#### - Tranform the skewed data features of months and day.
+      Try Smoothing: Dince data is discrete (e.g., count data) and causing issues, I aim to try using smoothing techniques to mitigate the 0s and 1s effect. For example,  additive smoothing (adding a small constant to all values) or Laplace smoothing (adding a small constant to the count of each bin).
+#### - Feature selection and fit polynomial regressor then GridSearchCV
+#### - RNN model 
 
