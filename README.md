@@ -105,7 +105,9 @@ Amongst all models, XBG with selected feature and gridsearchCV features seem to 
 #### - All models are performing weakly with test R2 being negative.
 
 #### - Amongst all models, XBG with selected feature and gridsearchCV features seem to be doing much better than most models.
+
 ![image.png](attachment:image.png)
+
 Best Params: {'XGB__alpha': 2, 'XGB__eta': 0.01, 'XGB__gamma': 3, 'XGB__max_depth': 2, 'XGB__n_estimators': 100}
 Train MSE: 1.828419406136051
 Test MSE: 1.9694429508540994
