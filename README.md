@@ -66,15 +66,51 @@ It represents the burned area of the forest: 0.00 to 1090.84 (this output variab
 
 ![image](https://github.com/user-attachments/assets/58bd2de9-e4a0-4866-8cf3-e8d52307f4ac)
 
-#### - All regressors have low mean square error
+#### - Ran Linear Regression, KNN, SVR, Decision Tree Regressor and Ridge regressors with no gridsearchCV. All have low mean square error but bad R2
+#### - Ran XGB, KNN, Lasso with GridsearchCV. These models also have good MSE but bad R2.
 #### - R2 is very bad & negative for all regressors including ensemble models after gridsearch.
 #### - Cross validation did not improve score on linear regression
 #### - Since R2 are negative, we need to go back to data features transformation and see if there is any standardization required
 
-## NEXT STEPS
+### For Next direction: 
+#### - Lasso did best in terms of producing least test mse. Since Lasso did well and it does well with feature selection, it can deduced that lasso selected good features. 
+#### - XGB is also a good due to its high train r2
+#### - Hence lets consider feature selection and running ensemble models like XGB on the subselected features
 #### - Apply Regularization techniques
-#### - Tranform the skewed data features of months and day.
-      Try Smoothing: Dince data is discrete (e.g., count data) and causing issues, I aim to try using smoothing techniques to mitigate the 0s and 1s effect. For example,  additive smoothing (adding a small constant to all values) or Laplace smoothing (adding a small constant to the count of each bin).
-#### - Feature selection and fit polynomial regressor then GridSearchCV
-#### - RNN model 
+#### - Try neural network model as well
 
+## Section 5: Feature Selection to identify more important features
+
+#### 1. Recursive Feature Elimination (RFE)
+#### 2. Random Forest Regressors
+Using RandomForestRegressor: Selected Features using Random Forest Regressor is 10/29: ['day_sat', 'Y', 'FFMC', 'ISI', 'DC', 'X', 'wind', 'DMC', 'RH', 'temp']
+RFE did not earn much benefits
+
+## Section 6: Model Tuning
+#### Ran XGB, SVR and NN with gridsearch and on subset of features.
+![image](https://github.com/user-attachments/assets/74c0b190-e966-4094-8c9f-9b9b74b4968a)
+
+Amongst all models, XBG with selected feature and gridsearchCV features seem to be doing much better than most models. However, it still has low r2.
+
+# Best Params: {'XGB__alpha': 2, 'XGB__eta': 0.01, 'XGB__gamma': 3, 'XGB__max_depth': 2, 'XGB__n_estimators': 100}
+# Train MSE: 1.828419406136051
+# Test MSE: 1.9694429508540994
+![image](https://github.com/user-attachments/assets/194874fb-877e-491c-9943-54c6d02d7470)
+
+## Section 7: Conclusion
+
+#### I ran several regressors models to predict the burned area due to fires including: Linear Regression, KNNRegression, Decision Tree Regressor, Ridge, Lasso, Support Vector Regressor, XGB Regressor as well as Neural Network
+#### KNN Regressor was the fastest to train and SVM was the slowest.
+
+#### - All models are performing weakly with test R2 being negative.
+
+#### - Amongst all models, XBG with selected feature and gridsearchCV features seem to be doing much better than most models.
+![image.png](attachment:image.png)
+Best Params: {'XGB__alpha': 2, 'XGB__eta': 0.01, 'XGB__gamma': 3, 'XGB__max_depth': 2, 'XGB__n_estimators': 100}
+Train MSE: 1.828419406136051
+Test MSE: 1.9694429508540994
+
+## Recomendation
+
+#### Add more data from more and iteratively refresh the model on new data to get latest to get better model Test R2. 
+### Currently , we cannot derive any decisions on the regressors on the prediction of the burned area.
