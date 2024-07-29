@@ -101,11 +101,12 @@ RFE did not earn much benefits
 
 #### - Amongst all models, XBG with selected feature and gridsearchCV features seem to be doing much better than most models.
 
-![image.png](attachment:image.png)
+
 
 Best Params: {'XGB__alpha': 2, 'XGB__eta': 0.01, 'XGB__gamma': 3, 'XGB__max_depth': 2, 'XGB__n_estimators': 100}
 Train MSE: 1.828419406136051
 Test MSE: 1.9694429508540994
+![XGBPredictionResult](https://github.com/user-attachments/assets/df762d64-0e5f-406e-b0ce-5b1171365fe6)
 
 ## Recomendation
 
