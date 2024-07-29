@@ -88,14 +88,9 @@ RFE did not earn much benefits
 
 ## Section 6: Model Tuning
 #### Ran XGB, SVR and NN with gridsearch and on subset of features.
-![image](https://github.com/user-attachments/assets/74c0b190-e966-4094-8c9f-9b9b74b4968a)
 
-Amongst all models, XBG with selected feature and gridsearchCV features seem to be doing much better than most models. However, it still has low r2.
+![PerformanceofRegressors](https://github.com/user-attachments/assets/36680551-9c66-43ca-ad9a-34811075c0b8)
 
-# Best Params: {'XGB__alpha': 2, 'XGB__eta': 0.01, 'XGB__gamma': 3, 'XGB__max_depth': 2, 'XGB__n_estimators': 100}
-# Train MSE: 1.828419406136051
-# Test MSE: 1.9694429508540994
-![image](https://github.com/user-attachments/assets/194874fb-877e-491c-9943-54c6d02d7470)
 
 ## Section 7: Conclusion
 
